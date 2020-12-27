@@ -26,7 +26,8 @@ public class algorithmexam5 {
         return max;*/
        int max = arr[0];
 
-       return recursiveMax(arr, 0, max);
+       //return recursiveMax(arr, 0, max);
+        return recursiveMax2(arr, 4);
     }
 
     public static int recursiveMax(int[] arr, int offSet, int max){
@@ -38,6 +39,21 @@ public class algorithmexam5 {
             }
             else
                 return recursiveMax(arr, offSet+1, max);
+        }
+    }
+
+    public static int recursiveMax2(int[] arr, int num){
+        if(num == 0)
+            return arr[0];
+        else{
+            int maxNum = recursiveMax2(arr, num-1);
+
+            if(arr[num] > maxNum)
+                maxNum = arr[num];
+            else
+                maxNum = arr[num-1];
+
+            return maxNum;
         }
     }
 
