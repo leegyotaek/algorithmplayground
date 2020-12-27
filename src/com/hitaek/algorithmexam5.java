@@ -49,11 +49,9 @@ public class algorithmexam5 {
             int maxNum = recursiveMax2(arr, num-1);
 
             if(arr[num] > maxNum)
-                maxNum = arr[num];
+                return arr[num];
             else
-                maxNum = arr[num-1];
-
-            return maxNum;
+                return arr[num-1];
         }
     }
 
