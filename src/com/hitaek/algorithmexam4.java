@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class algorithmexam4 {
 
     public static void main(String[] args) {
-        // 문제3
+        // 문제4
         // 1부터 n까지의 합을 재귀함수로 구현하시오
         Scanner sc = new Scanner(System.in);
 

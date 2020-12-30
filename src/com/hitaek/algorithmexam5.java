@@ -8,7 +8,7 @@ public class algorithmexam5 {
 
     public static void main(String[] args) {
 
-        // 문제3
+        // 문제5
         // 숫자 N개 중에서 최대값 찾기를 재귀함수로 구현하시오
         int[] numArr = {1,2,3,4,5};
         System.out.print(max(numArr));
