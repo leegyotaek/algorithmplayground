@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class algorithmexam6 {
 
     public static void main(String[] args) {
-
         // 문제6
         // N번째 피보나치 수를 구하는 알고리즘을 재귀 호출을 이용하여 구하기
         System.out.println(getFibonacci(11));
@@ -22,7 +21,4 @@ public class algorithmexam6 {
         else
             return getFibonacci(num-2)+getFibonacci(num-1);
     }
-
-
-
 }
