@@ -11,7 +11,7 @@ public class algorithmexam9 {
     public static void main(String[] args) {
         // 문제 9
         // 선택정렬 알고리즘
-        // 리스트 [2,4,5,1,3]을 정렬하는 과정을 적으시오
+        // 리스트 [2,4,5,1,3]을 정렬(오름차순)하는 과정을 적으시오
         List<Integer> nums = new ArrayList<Integer>(){{
             add(2);
             add(4);
