@@ -29,11 +29,11 @@ public class algorithmexam17 {
         dInfo.put("o", new ArrayList<>(Arrays.asList("k")));
         dInfo.put("p", new ArrayList<>(Arrays.asList("l")));
 
-        findShortcutWay(dInfo, "a", "p", new ArrayList<>(), new ArrayList<>(Arrays.asList("a")) , "a" );
+        findShortcutWay(dInfo, "a", "p", new ArrayList<>(), new ArrayList<>(Arrays.asList("a")) );
 
     }
 
-    private static void findShortcutWay(Map<String, List<String>> dInfo, String start, String end,  List<String> done , List<String> result,  String undo) {
+    private static void findShortcutWay(Map<String, List<String>> dInfo, String start, String end,  List<String> done , List<String> result) {
 
         done.add(start);
 
@@ -48,7 +48,7 @@ public class algorithmexam17 {
         if(spots.size()==1){
             String spot = spots.get(0);
             result.add(spot);
-            findShortcutWay(dInfo, spot, end, done, result, undo);
+            findShortcutWay(dInfo, spot, end, done, result);
         }else{ // spots.size()>2
             // undo <= start;
             for(String spot : spots){
@@ -58,7 +58,7 @@ public class algorithmexam17 {
 
                 if(done.contains(spot)==false){
                     newResult.add(spot);
-                    findShortcutWay(dInfo, spot, end, done, newResult, start);
+                    findShortcutWay(dInfo, spot, end, done, newResult);
                 }
 
             }
