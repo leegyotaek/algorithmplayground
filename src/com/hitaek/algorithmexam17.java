@@ -29,10 +29,59 @@ public class algorithmexam17 {
         dInfo.put("o", new ArrayList<>(Arrays.asList("k")));
         dInfo.put("p", new ArrayList<>(Arrays.asList("l")));
 
-        findShortcutWay(dInfo, "a", "p");
+        findShortcutWay(dInfo, "a", new ArrayList<>(), new ArrayList<>() , "" );
+
     }
 
-    private static void findShortcutWay(Map<String, List<String>> dInfo, String start, String end) {
+    private static void findShortcutWay(Map<String, List<String>> dInfo, String start, List<String> done , List<String> result,  String undo) {
+
+        done.add(start);
+
+        if(start.equals("p")){
+            System.out.println(result);
+            return;
+        }
+
+        List<String> spots = dInfo.get(start);
+
+        if(spots.size()==1){
+            String spot = spots.get(0);
+                if(start.equals("a")){
+                    result.add(spot);
+                    findShortcutWay(dInfo, spot, done, result, undo);
+                }else if(spot.equals("p")==false) {
+                    if(done.contains(spot)==false)
+                        findShortcutWay(dInfo, undo, done, result, undo);
+                }
+                else {
+                    System.out.println(result);
+                    return;
+            }
+        } else if(spots.size()==2){
+            for(String spot : spots){
+                if(done.contains(spot)==false){
+                    result.add(spot);
+                    findShortcutWay(dInfo, spot, done, result, undo);
+                }
+            }
+        }else if(spots.size()>2){
+            // undo <= start;
+            for(String spot : spots){
+
+                List<String> newResult = new ArrayList<>();
+                newResult.addAll(result);
+
+                if(done.contains(spot)==false){
+                    newResult.add(spot);
+                    findShortcutWay(dInfo, spot, done, newResult, start);
+                }
+
+            }
+        }
+
+
+
+
 
 
 
