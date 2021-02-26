@@ -29,15 +29,16 @@ public class algorithmexam17 {
         dInfo.put("o", new ArrayList<>(Arrays.asList("k")));
         dInfo.put("p", new ArrayList<>(Arrays.asList("l")));
 
-        findShortcutWay(dInfo, "a", new ArrayList<>(), new ArrayList<>() , "" );
+        findShortcutWay(dInfo, "a", "p", new ArrayList<>(), new ArrayList<>(Arrays.asList("a")) , "a" );
 
     }
 
-    private static void findShortcutWay(Map<String, List<String>> dInfo, String start, List<String> done , List<String> result,  String undo) {
+    private static void findShortcutWay(Map<String, List<String>> dInfo, String start, String end,  List<String> done , List<String> result,  String undo) {
 
         done.add(start);
 
-        if(start.equals("p")){
+        // 종료 시점
+        if(start.equals(end)){
             System.out.println(result);
             return;
         }
@@ -46,25 +47,9 @@ public class algorithmexam17 {
 
         if(spots.size()==1){
             String spot = spots.get(0);
-                if(start.equals("a")){
-                    result.add(spot);
-                    findShortcutWay(dInfo, spot, done, result, undo);
-                }else if(spot.equals("p")==false) {
-                    if(done.contains(spot)==false)
-                        findShortcutWay(dInfo, undo, done, result, undo);
-                }
-                else {
-                    System.out.println(result);
-                    return;
-            }
-        } else if(spots.size()==2){
-            for(String spot : spots){
-                if(done.contains(spot)==false){
-                    result.add(spot);
-                    findShortcutWay(dInfo, spot, done, result, undo);
-                }
-            }
-        }else if(spots.size()>2){
+            result.add(spot);
+            findShortcutWay(dInfo, spot, end, done, result, undo);
+        }else{ // spots.size()>2
             // undo <= start;
             for(String spot : spots){
 
@@ -73,7 +58,7 @@ public class algorithmexam17 {
 
                 if(done.contains(spot)==false){
                     newResult.add(spot);
-                    findShortcutWay(dInfo, spot, done, newResult, start);
+                    findShortcutWay(dInfo, spot, end, done, newResult, start);
                 }
 
             }
